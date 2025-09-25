@@ -213,7 +213,7 @@ func render(d Deck) string {
 
 func main() {
 	if len(os.Args) < 2 {
-		log.Fatal("usage: s5 input.md [output.html]")
+		log.Fatal("usage: m2s input.md [output.html]")
 	}
 
 	in := os.Args[1]
