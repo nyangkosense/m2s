@@ -1,0 +1,33 @@
+@page {
+    margin: 1in;
+}
+
+body {
+    font-family: serif;
+    color: #000;
+}
+
+.slide {
+    page-break-after: always;
+    margin-bottom: 1in;
+}
+
+.slide:last-child {
+    page-break-after: avoid;
+}
+
+.slide > h1 {
+    font-size: 26pt;
+    margin-bottom: 14pt;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6pt;
+}
+
+.slide .body {
+    font-size: 20pt;
+    line-height: 1.6;
+}
+
+.slide .body img {
+    max-width: 100%;
+}

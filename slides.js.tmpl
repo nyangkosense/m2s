@@ -1,0 +1,54 @@
+(function () {
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.presentation .slide'));
+    if (!slides.length) { return; }
+    var index = 0;
+    var total = slides.length;
+    var indicator = document.getElementById('current-count');
+
+    function syncHash(i) {
+        var id = slides[i].getAttribute('id');
+        if (id) { window.location.hash = id; }
+    }
+
+    function updateIndicator() {
+        if (!indicator) { return; }
+        indicator.textContent = (index + 1) + ' / ' + total;
+    }
+
+    function show(i) {
+        slides[index].classList.remove('current');
+        index = (i + slides.length) % slides.length;
+        slides[index].classList.add('current');
+        syncHash(index);
+        updateIndicator();
+    }
+
+    slides.forEach(function (el, i) {
+        el.id = el.id || ('slide-' + (i + 1));
+        if (window.location.hash && ('#' + el.id) === window.location.hash) {
+            index = i;
+        }
+    });
+
+    slides[index].classList.add('current');
+    updateIndicator();
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault();
+            show(index + 1);
+        }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault();
+            show(index - 1);
+        }
+        if (e.key === 'Home') {
+            e.preventDefault();
+            show(0);
+        }
+        if (e.key === 'End') {
+            e.preventDefault();
+            show(slides.length - 1);
+        }
+    });
+})();

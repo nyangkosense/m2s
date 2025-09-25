@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ .Title }}</title>
+<meta name="generator" content="s5go">
+{{ if .Author }}<meta name="author" content="{{ .Author }}">{{ end }}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+{{ .ScreenCSS }}
+</style>
+<style media="print">
+{{ .PrintCSS }}
+</style>
+<style id="outline">
+{{ .OutlineCSS }}
+</style>
+</head>
+<body>
+<div id="controls">
+<strong>{{ .Title }}</strong>
+{{ if .Author }}<span>{{ .Author }}</span>{{ end }}
+</div>
+<div id="currentSlide"><span id="current-count"></span></div>
+<div class="presentation">
+{{ range .Slides }}
+<div class="slide{{ if .Current }} current{{ end }}" id="{{ .ID }}">
+<h1>{{ .Title }}</h1>
+<div class="body">
+{{ .Body }}
+</div>
+</div>
+{{ end }}
+</div>
+<script>
+{{ .JS }}
+</script>
+</body>
+</html>

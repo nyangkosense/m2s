@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #111315;
+    font-size: 18px;
+}
+
+#controls,
+#currentSlide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    background: rgba(233, 238, 245, 0.95);
+    color: #0f172a;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.01em;
+}
+
+#controls {
+    top: 0;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+#currentSlide {
+    bottom: 0;
+    border-top: 1px solid #cbd5e1;
+    justify-content: flex-end;
+}
+
+.presentation {
+    min-height: 100vh;
+    padding: 3.5rem 1.5rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    max-width: 72rem;
+    border: 1px solid #d0d6df;
+    background: #ffffff;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+
+.slide.current {
+    display: block;
+}
+
+.slide > h1 {
+    margin-top: 0;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.slide .body p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 1.2rem 0;
+}
+
+.slide .body ul {
+    margin: 1.2rem 0 1.2rem 1.6rem;
+    padding: 0;
+}
+
+.slide .body li {
+    margin-bottom: 0.75rem;
+}
+
+.slide .body pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 1.1rem;
+    overflow-x: auto;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.slide .body code {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 0.95em;
+}
+
+.slide .body img {
+    max-width: 100%;
+    display: block;
+    margin: 1.5rem auto;
+    border: 1px solid #d0d6df;
+    border-radius: 6px;
+}
